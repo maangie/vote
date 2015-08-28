@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Voter:</strong>
+  <%= @vote_record.voter_id %>
+</p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @vote_record.question_id %>
+</p>
+
+<p>
+  <strong>Is yes:</strong>
+  <%= @vote_record.is_yes %>
+</p>
+
+<%= link_to 'Edit', edit_vote_record_path(@vote_record) %> |
+<%= link_to 'Back', vote_records_path %>

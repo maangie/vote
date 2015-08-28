@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :vote_records
   resources :voters
   resources :questions
   # The priority is based upon order of creation: first created -> highest priority.

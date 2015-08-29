@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :voters
   resources :questions
   match 'vote', controller: :vote, action: :index, via: :get
-  match 'vote/list', via: :post
+  match 'vote/list', via: %i(get post)
   match 'vote/record_votes', via: :post
 
   # The priority is based upon order of creation: first created ->

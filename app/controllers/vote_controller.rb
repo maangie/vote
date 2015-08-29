@@ -5,7 +5,7 @@ class VoteController < ApplicationController
     voter_entry = @uname && Voter.find_by_username(@uname)
     if voter_entry == nil || voter_entry.password != pword
       # should post an error here
-      render :action => 'vote/index'  # redisplay login form
+      render :action => 'index'  # redisplay login form
     else
       @questions = Question.open
     end
@@ -17,7 +17,7 @@ class VoteController < ApplicationController
       flash[:login_error] =
         "User id #{uname} no longer valid - please log back in."
 
-      render action: 'vote/index'
+      render action: 'index'
     else
       VoteRecord.record_votes params[:question], voter
     end

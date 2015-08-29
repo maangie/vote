@@ -7,7 +7,7 @@ class VoteController < ApplicationController
       # should post an error here
       render :action => 'index'  # redisplay login form
     else
-      @questions = Question.open
+      @questions = Question.open_questions_for(voter_entry.id)
     end
   end
 

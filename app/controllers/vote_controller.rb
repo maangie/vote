@@ -13,13 +13,14 @@ class VoteController < ApplicationController
 
   def record_votes
     uname = params[:username]
-    if (voter = Voter.find_by_username(uname)) == nil
+    unless (voter = Voter.find_by_username(uname))
       flash[:login_error] =
         "User id #{uname} no longer valid - please log back in."
 
       render action: 'index'
-    else
-      VoteRecord.record_votes params[:question], voter
+      return
     end
+
+    VoteRecord.record_votes params[:question], voter
   end
 end
